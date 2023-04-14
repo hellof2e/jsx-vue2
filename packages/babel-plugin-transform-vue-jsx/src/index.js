@@ -358,8 +358,58 @@ const transformJSXElement = (t, path) => {
   if (children.length) {
     args.push(t.arrayExpression(children))
   }
+  let ast = t.callExpression(t.identifier('h'), args)
+  ast = replaceQuarkSlot(ast)
+  return ast
+  // return t.callExpression(t.identifier('h'), args)
+}
 
-  return t.callExpression(t.identifier('h'), args)
+const replaceQuarkSlot = (ast) => {
+  // 如果节点没有属性，就直接返回
+  if (!ast || typeof ast !== 'object') {
+    return;
+  }
+
+  if (ast.type && ast.type === 'ObjectProperty' && ast.key && ast.key.type === 'StringLiteral' && ast.key.value && ast.key.value === 'attrs') {
+    replaceQuarkSlot(ast.value);
+  }
+  // 如果节点是 ObjectProperty 类型，检查它的值
+  if (ast.type === 'ObjectProperty' && ast.key && ast.key.type === 'StringLiteral' && ast.key.value && ast.key.value === 'quark-slot') {
+    ast.key.value = 'slot';
+  }
+
+  // 如果节点是对象或数组类型，递归遍历子节点
+  if (ast.type === 'ObjectExpression' || ast.type === 'ArrayExpression') {
+    ast.properties && ast.properties.forEach(prop => {
+      replaceQuarkSlot(prop);
+    });
+
+    ast.elements && ast.elements.forEach(element => {
+      replaceQuarkSlot(element);
+    });
+  }
+
+  // 如果节点是数组，递归遍历数组元素
+  if (Array.isArray(ast)) {
+    ast.forEach((item) => {
+      replaceQuarkSlot(item);
+    });
+  }
+
+  // 如果节点有 arguments 属性，递归遍历 arguments
+  if (ast.arguments && Array.isArray(ast.arguments)) {
+    ast.arguments.forEach((arg) => {
+      replaceQuarkSlot(arg);
+    });
+  }
+
+  // 如果节点有 callee 属性，递归遍历 callee
+  if (typeof ast.callee === 'object') {
+    replaceQuarkSlot(ast.callee);
+  }
+
+  // 返回修改后的节点
+  return ast;
 }
 
 /**
