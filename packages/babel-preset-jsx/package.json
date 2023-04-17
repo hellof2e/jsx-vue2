@@ -1,6 +1,6 @@
 {
   "name": "@quarkd/babel-preset-jsx",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Babel preset for Vue JSX",
   "main": "dist/plugin.cjs.js",
   "repository": "https://github.com/vuejs/jsx/tree/master/packages/babel-preset-jsx",
@@ -16,7 +16,7 @@
     "prerelease": "yarn build"
   },
   "dependencies": {
-    "@quarkd/babel-plugin-transform-vue-jsx": "^1.4.1",
+    "@quarkd/babel-plugin-transform-vue-jsx": "^1.4.2",
     "@vue/babel-helper-vue-jsx-merge-props": "^1.4.0",
     "@vue/babel-sugar-composition-api-inject-h": "^1.4.0",
     "@vue/babel-sugar-composition-api-render-instance": "^1.4.0",
