@@ -1,6 +1,6 @@
 {
   "name": "@quarkd/babel-plugin-transform-vue-jsx",
-  "version": "1.4.3",
+  "version": "1.4.2",
   "description": "Babel plugin for Vue 2.0 JSX",
   "main": "dist/plugin.js",
   "repository": "https://github.com/vuejs/jsx/tree/master/packages/babel-plugin-transform-vue-jsx",

@@ -1,6 +1,6 @@
 {
   "name": "@quarkd/babel-preset-jsx",
-  "version": "1.4.3",
+  "version": "1.4.2",
   "description": "Babel preset for Vue JSX",
   "main": "dist/plugin.cjs.js",
   "repository": "https://github.com/vuejs/jsx/tree/master/packages/babel-preset-jsx",
