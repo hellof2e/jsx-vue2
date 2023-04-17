@@ -1,4 +1,28 @@
-## @vue/babel-preset-jsx
+# fork from https://github.com/vuejs/jsx-vue2
+
+解决在 vue 中使用 jsx 时，无法使用原生 slot 的问题.
+由于 vue 的 slot 与原生 slot 解析存在冲突，因此对于 quark 使用的原生 slot，使用时请加上前缀 `quark-slot`.
+
+```tsx
+import { Component, Vue } from "vue-property-decorator";
+import 'quarkd/lib/dialog'
+
+@Component({})
+export default class Home extends Vue {
+  render() {
+    return (
+      <div>
+        <h1>Hello world</h1>
+        <quark-dialog content="testts" open>
+          <div quark-slot="title" >自定义标题</div>
+        </quark-dialog>
+      </div>
+    )
+  }
+}
+```
+
+## @quarkd/babel-preset-jsx
 
 Configurable preset for Vue JSX plugins.
 
@@ -12,16 +36,16 @@ Install the dependencies:
 
 ```sh
 # for yarn:
-yarn add @vue/babel-preset-jsx @vue/babel-helper-vue-jsx-merge-props
+yarn add @quarkd/babel-preset-jsx @vue/babel-helper-vue-jsx-merge-props
 # for npm:
-npm install @vue/babel-preset-jsx @vue/babel-helper-vue-jsx-merge-props --save
+npm install @quarkd/babel-preset-jsx @vue/babel-helper-vue-jsx-merge-props --save
 ```
 
 In your `babel.config.js`:
 
 ```js
 module.exports = {
-  presets: ['@vue/babel-preset-jsx'],
+  presets: ['@quarkd/babel-preset-jsx'],
 }
 ```
 
@@ -31,7 +55,7 @@ You can toggle specific features, by default all features (except `compositionAP
 module.exports = {
   presets: [
     [
-      '@vue/babel-preset-jsx',
+      '@quarkd/babel-preset-jsx',
       {
         vModel: false,
         compositionAPI: true,

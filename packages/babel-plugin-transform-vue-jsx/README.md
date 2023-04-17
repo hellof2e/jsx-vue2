@@ -2,6 +2,29 @@
 
 > Babel plugin for Vue 2.0 JSX
 
+# fork from https://github.com/vuejs/jsx-vue2
+
+解决在 vue 中使用 jsx 时，无法使用原生 slot 的问题.
+由于 vue 的 slot 与原生 slot 解析存在冲突，因此对于 quark 使用的原生 slot，使用时请加上前缀 `quark-slot`.
+
+```tsx
+import { Component, Vue } from "vue-property-decorator";
+import 'quarkd/lib/dialog'
+
+@Component({})
+export default class Home extends Vue {
+  render() {
+    return (
+      <div>
+        <h1>Hello world</h1>
+        <quark-dialog content="testts" open>
+          <div quark-slot="title" >自定义标题</div>
+        </quark-dialog>
+      </div>
+    )
+  }
+}
+```
 ### Babel Compatibility Notes
 
 - This repo is only compatible with Babel 7.x, for 6.x please use [vuejs/babel-plugin-transform-vue-jsx](https://github.com/vuejs/babel-plugin-transform-vue-jsx)
