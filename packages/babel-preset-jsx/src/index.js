@@ -1,4 +1,4 @@
-import babelPluginTransformVueJsx from '@vue/babel-plugin-transform-vue-jsx'
+import babelPluginTransformVueJsx from '@quarkd/babel-plugin-transform-vue-jsx'
 import babelSugarFunctionalVue from '@vue/babel-sugar-functional-vue'
 import babelSugarInjectH from '@vue/babel-sugar-inject-h'
 import babelSugarCompositionApiInjectH from '@vue/babel-sugar-composition-api-inject-h'

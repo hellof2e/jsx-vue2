@@ -1,4 +1,4 @@
-## @vue/babel-plugin-transform-vue-jsx
+## @quarkd/babel-plugin-transform-vue-jsx
 
 > Babel plugin for Vue 2.0 JSX
 
@@ -15,7 +15,7 @@
 ### Usage
 
 ```bash
-npm install @vue/babel-plugin-transform-vue-jsx --save-dev
+npm install @quarkd/babel-plugin-transform-vue-jsx --save-dev
 npm install @vue/babel-helper-vue-jsx-merge-props --save
 ```
 
